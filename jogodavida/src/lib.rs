@@ -28,6 +28,7 @@ impl Universe {
     fn get_index(&self, row: u32, column: u32) -> usize {
         (row * self.width + column) as usize
     }
+
     fn live_neighbor_count(&self, row: u32, column: u32) -> u8 {
         let mut count = 0;
         for delta_row in [self.height - 1, 0, 1].iter().cloned() {
@@ -48,7 +49,7 @@ impl Universe {
 }
 
 #[wasm_bindgen]
-impl Universe {
+impl Universe { 
     pub fn tick(&mut self) {
         let mut next = self.cells.clone();
 
